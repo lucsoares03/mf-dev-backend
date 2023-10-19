@@ -9,10 +9,17 @@ namespace mf_dev_backend_2023.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o tipo!")]
+        [Required(ErrorMessage = "Obrigatório informar o tipo.")]
         public string Tipo { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o valor!")]
+        [Required(ErrorMessage = "Obrigatório informar o valor.")]
         public float Valor { get; set; }
+
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
+        public DateTime Data { get; set; }
+
+        [Required(ErrorMessage = "Obrigatório informar a descrição.")]
+        [Display(Name = "Descrição")]
+        public string Descricao { get; set; }
     }
 }
