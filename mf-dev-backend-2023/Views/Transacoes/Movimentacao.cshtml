@@ -5,10 +5,7 @@
 }
 
 <h1>Transações</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-success">Adicionar transação</a>
-</p>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <a asp-action="Movimentacao" asp-route-id="@item.Tipo">@item.Tipo</a>
+                @Html.DisplayFor(modelItem => item.Tipo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Valor)
@@ -51,3 +48,4 @@
 }
     </tbody>
 </table>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

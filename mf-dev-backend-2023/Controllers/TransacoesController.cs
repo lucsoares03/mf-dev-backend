@@ -1,6 +1,7 @@
 ﻿using mf_dev_backend_2023.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace mf_dev_backend_2023.Controllers
 {
@@ -107,6 +108,24 @@ namespace mf_dev_backend_2023.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Movimentacao(string id)
+        {
+            Console.WriteLine("Tipo: " + id);
+            if (id == null)
+                return NotFound();
+
+            var transacoes = await _context.Transacoes
+                .Where(t => t.Tipo == id)
+                .OrderByDescending(t => t.Data)
+                .ToListAsync();
+            Console.WriteLine("Transações: " + transacoes);
+            decimal total = transacoes.Sum(c => c.Valor);
+
+            ViewBag.Total = total;
+
+            return View(transacoes);
         }
     }
 }

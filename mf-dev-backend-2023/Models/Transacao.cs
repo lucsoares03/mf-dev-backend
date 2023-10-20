@@ -13,7 +13,8 @@ namespace mf_dev_backend_2023.Models
         public string Tipo { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o valor.")]
-        public float Valor { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal Valor { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime Data { get; set; }
@@ -22,4 +23,5 @@ namespace mf_dev_backend_2023.Models
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
     }
+
 }
