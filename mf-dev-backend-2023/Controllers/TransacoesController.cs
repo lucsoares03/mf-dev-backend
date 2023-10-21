@@ -1,6 +1,7 @@
 ﻿using mf_dev_backend_2023.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 
 namespace mf_dev_backend_2023.Controllers
@@ -110,12 +111,8 @@ namespace mf_dev_backend_2023.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Movimentacao(string id)
+        public async Task<IActionResult> Movimentacao(Tipo id)
         {
-            Console.WriteLine("Tipo: " + id);
-            if (id == null)
-                return NotFound();
-
             var transacoes = await _context.Transacoes
                 .Where(t => t.Tipo == id)
                 .OrderByDescending(t => t.Data)
@@ -124,6 +121,7 @@ namespace mf_dev_backend_2023.Controllers
             decimal total = transacoes.Sum(c => c.Valor);
 
             ViewBag.Total = total;
+            ViewBag.Titulo = id+"s";
 
             return View(transacoes);
         }

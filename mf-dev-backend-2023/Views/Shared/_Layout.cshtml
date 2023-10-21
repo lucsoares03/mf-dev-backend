@@ -13,6 +13,19 @@
             background-color: #2125291a;
         }
 
+        .container-1 {
+            flex: 1; /* Isso faz com que o container ocupe o espaço disponível e empurre a div para o fundo. */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            width: 300px; /* Largura da sua div centralizada. Ajuste conforme necessário. */
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
@@ -32,6 +45,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Index">Transações</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Movimentacao" asp-route-id="Despesa">Despesas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Movimentacao" asp-route-id="Receita">Receitas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-ligt" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,8 +66,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - mf_dev_backend_2023 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container-1">
+            &copy; 2023 - Controla Fácil
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

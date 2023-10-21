@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mf_dev_backend_2023.Models
 {
-    [Table ("Transacoes")]
+    [Table("Transacoes")]
     public class Transacao
     {
         [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o tipo.")]
-        public string Tipo { get; set; }
+        public Tipo Tipo { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o valor.")]
         [DataType(DataType.Currency)]
@@ -23,5 +23,9 @@ namespace mf_dev_backend_2023.Models
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
     }
-
+    public enum Tipo
+    {
+        Receita,
+        Despesa
+    }
 }
