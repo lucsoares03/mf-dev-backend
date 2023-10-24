@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Controla Fácil</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/mf_dev_backend_2023.styles.css" asp-append-version="true" />
     <link rel="shortcut icon" href="~/img/logo_grafico.ico" type="image/x-icon">
+    
     <style>
         body {
             background-color: #2125291a;
         }
 
         .container-1 {
-            flex: 1; /* Isso faz com que o container ocupe o espaço disponível e empurre a div para o fundo. */
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .content {
-            width: 300px; /* Largura da sua div centralizada. Ajuste conforme necessário. */
-            text-align: center;
-            border: 1px solid #ccc;
-            padding: 20px;
+        li {
+            list-style-type: none;
+            display: inline;
+            margin-left: 1px;
         }
     </style>
 </head>
@@ -40,7 +41,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-ligt" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-ligt" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Index">Transações</a>
