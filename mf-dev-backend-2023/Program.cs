@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer("Server = projeto-controla-facil.database.windows.net; Database = projeto-controla-facil; User Id = controla-facil; Password = @projeto2023;"));
 
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
