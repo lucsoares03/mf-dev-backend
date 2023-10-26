@@ -56,6 +56,22 @@
                             <a class="nav-link text-ligt" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item" style="color:#9b9d9e">
+                                Olá, @User.Identity.Name <a class="nav-link text-ligt" style="display: inline;" asp-area="" asp-controller="Usuarios" asp-action="Logout"><i class="fa-solid fa-right-to-bracket" style="color: #c20000;"></i></a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-ligt" asp-area="" asp-controller="Usuarios" asp-action="Login"><i class="fa-solid fa-right-to-bracket"></i></a>
+                            </li>
+                        }
+
+                    </ul>
                 </div>
             </div>
         </nav>
