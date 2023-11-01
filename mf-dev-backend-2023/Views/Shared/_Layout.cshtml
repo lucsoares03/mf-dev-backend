@@ -15,23 +15,28 @@
             background-color: #2125291a;
         }
 
-        .container-1 {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         li {
             list-style-type: none;
             display: inline;
             margin-left: 1px;
         }
+
+        .dropdown-item {
+          
+            color: #9b9d9e;
+        }
+
+        footer {
+            color: #9b9d9e;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark bg-gradient border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.ico" width="170px"  /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -43,14 +48,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-ligt" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Index">Transações</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Movimentacao" asp-route-id="Despesa">Despesas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-ligt" asp-area="" asp-controller="Transacoes" asp-action="Movimentacao" asp-route-id="Receita">Receitas</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Transações</a>
+                            <div class="dropdown-menu bg-dark bg-gradient" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Transacoes" asp-action="Index">Transações</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Transacoes" asp-action="Movimentacao" asp-route-id="Despesa">Despesas</a>
+                                <a class="dropdown-item" asp-controller="Transacoes" asp-action="Movimentacao" asp-route-id="Receita">Receitas</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-ligt" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
@@ -82,8 +88,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container-1">
+    <footer class="text-center bg-dark bg-gradient site-footer">
+        <div class="text-center p-3">
             &copy; 2023 - Controla Fácil
         </div>
     </footer>

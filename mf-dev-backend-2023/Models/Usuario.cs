@@ -22,7 +22,7 @@ namespace mf_dev_backend_2023.Models
 
     public enum Perfil
     {
-        Admin,
-        User
+        Administrador,
+        Usuário
     }
 }

@@ -12,6 +12,7 @@ using System.Security.Claims;
 
 namespace mf_dev_backend_2023.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,12 +22,14 @@ namespace mf_dev_backend_2023.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([Bind("Id,Senha")] Usuario usuario)
         {
             var user = await _context.Usuarios

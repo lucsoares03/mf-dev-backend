@@ -1,4 +1,5 @@
 ﻿using mf_dev_backend_2023.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
@@ -6,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace mf_dev_backend_2023.Controllers
 {
+    [Authorize]
     public class TransacoesController : Controller
     {
         private readonly AppDbContext _context;
